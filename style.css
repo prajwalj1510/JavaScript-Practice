@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper {
+    text-align: center;
+    width: 400px;
+    margin: 10px;
+    background-color:bisque;
+    justify-content: center;
+}
+
+.item {
+    margin: 5px ;
+    border: 1px solid red ;
+}
+
+.title {
+    cursor: pointer;
+    font-size: 14px;
+    color:brown ;
+}
+
+.content {
+    display: none; 
+}
+
+.title.active + .content {
+    display: block;
+}
+
+.title.active {
+    border-bottom: 2px dashed blue;
+}
+
+.title.active i {
+    transform: rotate(180deg);
+}
