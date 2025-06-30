@@ -12,15 +12,6 @@
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black"/>
 </p>
 
----
-
-## 📸 Live Demo
-
-🔗 [Click Here to View the Project](https://your-live-demo-link.com)
-
-![screenshot](./screenshot.png) <!-- Replace with your screenshot -->
-
----
 
 ## ⚙️ Tech Stack
 
@@ -49,8 +40,6 @@ project-name/
 ├── index.html
 ├── style.css
 ├── script.js
-├── assets/
-│ └── images/
 └── README.md
 
 ---
@@ -60,14 +49,14 @@ project-name/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/project-name.git
+git clone https://github.com/JavaScript-Practice.git
 
 
 🧑‍💻 Author
 Made with ❤️ by **_PRAJWAL J_**
 
 Portfolio: your-portfolio.com
-LinkedIn: [https://www.linkedin.com/in/prajwalj1510/](url)
+LinkedIn: [My Profile 😊](https://www.linkedin.com/in/prajwalj1510/)
 
 ---
 
