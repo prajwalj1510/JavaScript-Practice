@@ -1,0 +1,20 @@
+.container {
+    height: 100vh;
+}
+
+.box1 {
+    background-color: aquamarine;
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+
+.box2 {
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
