@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    line-height: 1cm;
+}
+
+.loading {
+    display: none;
+}
+
+.loading.show {
+    display: block;
+}
+
+
