@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.tab.active {
+    background-color: bisque;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
