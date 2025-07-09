@@ -1,0 +1,29 @@
+.filter-button {
+    background-color: aquamarine;
+}
+
+.filter-button.active {
+    background-color: chocolate;
+}
+
+.content {
+    display: none;
+}
+
+.content.active {
+    display: block;
+}
+
+.content-wrapper {
+    display: grid;
+    flex-direction: row;
+    
+}
+
+.content {
+    width: 200px;
+    height: 50px;
+    border: 1px solid blue;
+    color: red ;
+    text-align: center;
+}
