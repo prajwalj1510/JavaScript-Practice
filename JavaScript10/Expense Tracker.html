@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Expense Tracker</title>
+  <!--
+    📌 Smart Expense Tracker – Project Documentation
+    ... (trimmed for brevity)
+  -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://imgs.search.brave.com/jrgN1pnzTn8VNdCsOib3FBfgGGm1iVsOf5D6unDHFdE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvYmVh/dXRpZnVsLXNjZW5l/cnktZGVza3RvcC13/YWxscGFwZXItNGI5/emJ1YndzajNjOWdv/by5qcGc') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    input, select, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    input, select {
+      flex: 1 1 40%;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      background: #eef2f7;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+    }
+    .dark-mode {
+      background: #0d1224;
+      color: #f5f7fa;
+    }
+    .dark-mode .container {
+      background: rgba(28, 31, 48, 0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>💸 Smart Expense Tracker</h2>
+    <form id="expense-form">
+      <input type="text" id="title" placeholder="Expense title" required />
+      <input type="number" id="amount" placeholder="Amount" required />
+      <select id="category">
+        <option value="food">Food</option>
+        <option value="travel">Travel</option>
+        <option value="bills">Bills</option>
+        <option value="others">Others</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+    <ul id="expenses"></ul>
+    <button onclick="toggleTheme()">🌙 Toggle Dark Mode</button>
+  </div>
+
+  <script>
+    const form = document.getElementById('expense-form');
+    const expensesList = document.getElementById('expenses');
+    const title = document.getElementById('title');
+    const amount = document.getElementById('amount');
+    const category = document.getElementById('category');
+
+    let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+
+    function saveExpenses() {
+      localStorage.setItem('expenses', JSON.stringify(expenses));
+    }
+
+    function renderExpenses() {
+      expensesList.innerHTML = '';
+      expenses.forEach((exp, i) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${exp.title} - ₹${exp.amount} <small>[${exp.category}]</small>
+          <button onclick="removeExpense(${i})">❌</button>
+        `;
+        expensesList.appendChild(li);
+      });
+    }
+
+    function removeExpense(index) {
+      expenses.splice(index, 1);
+      saveExpenses();
+      renderExpenses();
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const newExpense = {
+        title: title.value,
+        amount: parseFloat(amount.value),
+        category: category.value
+      };
+      expenses.push(newExpense);
+      saveExpenses();
+      renderExpenses();
+      form.reset();
+    });
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    renderExpenses();
+  </script>
+</body>
+</html>
